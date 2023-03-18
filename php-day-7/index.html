@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Register Form</h2>
+    <form action="sever.php" method="post" enctype="multipart/form-data">
+        <input type="text" name="your_name" placeholder="your name" required>
+        <br>
+        <br>
+        <input type="text" name="your_email" id="" placeholder="your email">
+        <br>
+        <br>
+        <label for="">Photo</label>
+        <input type="file" name="your_photo" accept="image/jpeg, image/png">
+        <br>
+        <br>
+        <label for="">Attachment</label>
+        <input type="file" name="attachment[]" multiple>
+        <br>
+        <br>
+        <div class="">
+             <label for="">Gender</label>
+
+             <input type="radio" id="male" name="gender" value="male" >
+             <label for="male">Male</label>
+             <input type="radio" id="female" name="gender" value="female" >
+             <label for="female">Female</label>
+        </div>
+        <br>
+        <br>
+          <div class="">
+               <label for="">Skills</label>
+               <input type="checkbox" name="skill[]" value="html" id="html">
+               <label for="html">html</label>
+
+               <input type="checkbox" name="skill[]" value="css" id="css">
+               <label for="css">css</label>
+
+               <input type="checkbox" name="skill[]" value="js" id="js">
+               <label for="js">js</label>
+
+               <input type="checkbox" name="skill[]" value="php" id="php">
+               <label for="php">php</label>
+
+               <input type="checkbox" name="skill[]" value="bootstrap" id="bootstrap">
+               <label for="bootstrap">bootstrap</label>
+
+               <br>
+               <br>
+                <label for="">Nationality</label>
+                <select name="nation" id="">
+                      <option value="mm">Myanmar</option>
+                      <option value="kr">Korea</option>
+                      <option value="jp">Japan</option>
+                      <option value="th">Thai</option>
+                      <option value="am">American</option>
+                </select>
+          </div>
+        <br>
+        <br>
+         
+        <button>Summit</button>
+    </form>
+</body>
+</html>
