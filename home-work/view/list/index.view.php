@@ -42,7 +42,7 @@
             <?php foreach ($lists['data'] as $fruits) : ?>
                 <tr>
                     <td><?= $fruits["id"]  ?></td>
-                    <td><?= $fruits["name"]  ?></td>
+                    <td><?= $fruits["name"] ?></td>
                     <td><?= $fruits["money"]  ?></td>
                     <td><?= $fruits["stock"]  ?></td>
                     <td><?= $fruits["created_at"]  ?></td>

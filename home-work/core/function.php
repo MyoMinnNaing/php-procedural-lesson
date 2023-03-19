@@ -174,3 +174,17 @@ function paginate(string $sql, $limit = 5): array
 }
 
 // DATABASE FUNCTIONS END
+
+
+// USER INPUT SANTIZING FUNCTION
+
+function santizie(string $string, $strip = false): string
+{
+    if ($strip) {
+        $string = strip_tags($string);
+    }
+    $string = htmlentities($string, ENT_QUOTES);
+    $string = stripslashes($string);
+
+    return $string;
+}

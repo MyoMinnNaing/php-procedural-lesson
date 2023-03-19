@@ -6,8 +6,39 @@ function create()
 
 function store()
 {
-    // dd($_POST);
-    $name = $_POST['name'];
+
+    if (empty(trim($_POST['name']))) {
+        dd('name is requie');
+    } else if (strlen(trim($_POST['name'])) < 3) {
+        dd('name is too short');
+    } else if (strlen(trim($_POST['name'])) > 15) {
+        dd('name is too long');
+    } else if (!preg_match("/^[a-zA-Z0-9 ]*$/", $_POST['name'])) {
+        dd("name only allows number, char and space");
+    }
+
+    if (empty(trim($_POST['money']))) {
+        dd('plese insert amount');
+    } else if (!is_numeric($_POST['money'])) {
+        dd('money must be number');
+    } else if (trim($_POST['money']) > 999999) {
+        dd('money must be less than 100000');
+    }
+
+    if (empty(trim($_POST['stock']))) {
+        dd('plese insert amount');
+    } else if (!is_numeric($_POST['stock'])) {
+        dd('stock must be number');
+    } else if (trim($_POST['stock']) > 99) {
+        dd('stock must be less than 100');
+    }
+
+
+
+
+    // dd('data ready');
+
+    $name = santizie($_POST['name'], true);
     $money = $_POST['money'];
     $stock = $_POST['stock'];
     $sql = "INSERT INTO fruits (name,money,stock) VALUES ('$name',$money,$stock)";

@@ -10,15 +10,15 @@
         <div class="row align-items-end">
             <div class="col">
                 <label for="" class="form-label">Fruit Name</label>
-                <input type="text" name="name" class="form-control" required>
+                <input type="text" name="name" class="form-control">
             </div>
             <div class="col">
                 <label for="" class="form-label">Money </label>
-                <input type="number" name="money" class="form-control" required>
+                <input type="number" name="money" class="form-control">
             </div>
             <div class="col">
                 <label for="" class="form-label">Stock </label>
-                <input type="number" name="stock" class="form-control" required>
+                <input type="number" name="stock" class="form-control">
             </div>
             <div class="col">
                 <button class="btn btn-primary w-50">Add Data</button>
@@ -32,5 +32,3 @@
 
 
 <?php require_once ViewDir . "/template/footer.php"; ?>
-
-<?php dd($_SERVER)  ?>
