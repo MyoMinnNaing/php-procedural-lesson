@@ -6,33 +6,36 @@ function create()
 
 function store()
 {
+    validationStart();
 
     if (empty(trim($_POST['name']))) {
-        dd('name is requie');
+        setError('name', 'name is requie');
     } else if (strlen(trim($_POST['name'])) < 3) {
-        dd('name is too short');
+        setError('name', 'name is too short');
     } else if (strlen(trim($_POST['name'])) > 15) {
-        dd('name is too long');
+        setError('name', 'name is too long');
     } else if (!preg_match("/^[a-zA-Z0-9 ]*$/", $_POST['name'])) {
-        dd("name only allows number, char and space");
+        setError('name', "name only allows number, char and space");
     }
 
     if (empty(trim($_POST['money']))) {
-        dd('plese insert amount');
+        setError('money', 'plese insert amount');
     } else if (!is_numeric($_POST['money'])) {
-        dd('money must be number');
+        setError('money', 'money must be number');
     } else if (trim($_POST['money']) > 999999) {
-        dd('money must be less than 100000');
+        setError('money', 'money must be less than 100000');
     }
 
     if (empty(trim($_POST['stock']))) {
-        dd('plese insert amount');
+        setError('stock', 'plese insert amount');
     } else if (!is_numeric($_POST['stock'])) {
-        dd('stock must be number');
+        setError('stock', 'stock must be number');
     } else if (trim($_POST['stock']) > 99) {
-        dd('stock must be less than 100');
+        setError('stock', 'stock must be less than 100');
     }
 
+
+    validationEnd();
 
 
 
@@ -48,9 +51,6 @@ function store()
     // setSession('list created');
     return redierct(route("list"), "list created");
 }
-
-
-
 
 
 function index()

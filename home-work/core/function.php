@@ -71,6 +71,64 @@ function redierct(string $url, string $message = null): void
     header("location:" . $url);
 }
 
+function redierctBack(string $message = null): void
+{
+    redierct($_SERVER['HTTP_REFERER'], $message);
+    // die();
+}
+
+// Validation Function Start
+
+function setError(string $key, string $message): void
+{
+    $_SESSION['error'][$key] = $message;
+}
+
+function hasError($key): bool
+{
+    if (!empty($_SESSION['error'][$key])) return true;
+    return false;
+}
+
+function showError(string $key): string
+{
+    $message = $_SESSION['error'][$key];
+    unset($_SESSION['error'][$key]);
+    return $message;
+}
+
+
+function validationStart(): void
+{
+    unset($_SESSION['old']);
+    unset($_SESSION['error']);
+    $_SESSION['old'] = $_POST;
+}
+
+
+function showOldData($key): string|null
+{
+    if (isset($_SESSION['old'][$key])) {
+        $data = $_SESSION['old'][$key];
+        // unset($_SESSION['old'][$key]);
+        return $data;
+    }
+    return null;
+}
+
+
+function validationEnd()
+{
+    if (hasSession('error')) {
+        redierctBack();
+        die();
+    } else {
+        unset($_SESSION['old']);
+    }
+}
+
+// Validation Function End
+
 
 
 // SESSION FUNCTION START

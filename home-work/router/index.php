@@ -14,6 +14,7 @@ $path = $uriArray['path'];
 
 
 const Routes = [
+    "/show-session" => "page@storeSession",
     "/list"      => "list@index",
     "/list-create" => "list@create",
     "/list-store" => "list@store", // post method
